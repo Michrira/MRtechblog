@@ -1,0 +1,32 @@
+[
+    {
+      "username": "stargazer22",
+      "email": "stargazer22@example.com",
+      "password": "password123"
+    },
+    {
+      "username": "wanderlust_witch",
+      "email": "wanderlust_witch@example.com",
+      "password": "password123"
+    },
+    {
+      "username": "the_green_goddess",
+      "email": "the_green_goddess@example.com",
+      "password": "password123"
+    },
+    {
+      "username": "RainbowPanda",
+      "email": "RainbowPanda@example.com",
+      "password": "password123"
+    },
+    {
+      "username": "CrimsonPhoenix",
+      "email": "CrimsonPhoenix@example.com",
+      "password": "password123"
+    },
+    {
+      "username": "NeonNinja",
+      "email": "NeonNinja@example.com",
+      "password": "password123"
+    }
+  ]
