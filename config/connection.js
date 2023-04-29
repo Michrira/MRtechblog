@@ -1,37 +1,21 @@
-const router = require('express').Router();
-const {
-    User,
-    Post,
-    Comment
-} = require('../../models');
-const withAuth = require('../../utils/auth');
+const Sequelize = require('sequelize');
+require('dotenv').config();
 
+let sequelize;
 
-//Get all comments
-router.get("/", (req, res) => {
-    Comment.findAll()
-        .then((dbCommentData) => res.json(dbCommentData))
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-
-//Create a comment
-router.post('/', withAuth, (req, res) => {
-    if (req.session) {
-        Comment.create({
-                comment_text: req.body.comment_text,
-                post_id: req.body.post_id,
-                user_id: req.session.user_id
-            })
-            .then(dbCommentData => res.json(dbCommentData))
-            .catch(err => {
-                console.log(err);
-                res.status(400).json(err);
-            });
+if (process.env.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else {
+  sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+      host: 'localhost',
+      dialect: 'mysql',
+      port: 3306
     }
-});
+  );
+}
 
-
-module.exports = router;
+module.exports = sequelize;
