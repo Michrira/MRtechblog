@@ -1,2 +1,2 @@
-DROP DATABSE IF EXISTS MRtechblog_db;
+DROP DATABASE IF EXISTS MRtechblog_db;
 CREATE DATABASE MRtechblog_db;

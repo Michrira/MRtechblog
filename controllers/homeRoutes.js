@@ -1,15 +1,16 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Homepage route
+// Render the homepage with all posts and the username of the user who made each post
 router.get('/', async (req, res) => {
     try {
-        const posts = await Post.findAll({
-            include: { model: User, attributes: ['username'] },
-            order: [['date_created', 'DESC']]
+        const postData = await Post.findAll({
+            include: [{ model: User, attributes: ['username'] }],
+            order: [['date_created', 'DESC']],
         });
+
+        const posts = postData.map((post) => post.get({ plain: true }));
 
         res.render('homepage', { posts, logged_in: req.session.logged_in });
     } catch (err) {
@@ -18,33 +19,45 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Login page route
+// Render the login page
 router.get('/login', (req, res) => {
+    // If the user is already logged in, redirect to the homepage
     if (req.session.logged_in) {
         res.redirect('/');
-    } else {
-        res.render('login');
+        return;
     }
+
+    res.render('login');
 });
 
-// Signup page route
+// Render the signup page
 router.get('/signup', (req, res) => {
+    // If the user is already logged in, redirect to the homepage
     if (req.session.logged_in) {
         res.redirect('/');
-    } else {
-        res.render('signup');
+        return;
     }
+
+    res.render('signup');
 });
 
-// Single post route
+// Render a single post with its comments and the username of the user who made each comment
 router.get('/post/:id', async (req, res) => {
     try {
-        const post = await Post.findByPk(req.params.id, {
+        const postData = await Post.findByPk(req.params.id, {
             include: [
-                { model: User, attributes: ['username'] },
-                { model: Comment, include: [{ model: User, attributes: ['username'] }] }
-            ]
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+                {
+                    model: Comment,
+                    include: [{ model: User, attributes: ['username'] }],
+                },
+            ],
         });
+
+        const post = postData.get({ plain: true });
 
         res.render('post', { post, logged_in: req.session.logged_in });
     } catch (err) {
@@ -53,14 +66,16 @@ router.get('/post/:id', async (req, res) => {
     }
 });
 
-// Dashboard route
+// Render the user's dashboard with all their posts and the ability to create a new post
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const posts = await Post.findAll({
+        const postData = await Post.findAll({
             where: { user_id: req.session.user_id },
-            include: { model: User, attributes: ['username'] },
-            order: [['date_created', 'DESC']]
+            include: [{ model: User, attributes: ['username'] }],
+            order: [['date_created', 'DESC']],
         });
+
+        const posts = postData.map((post) => post.get({ plain: true }));
 
         res.render('dashboard', { posts, logged_in: req.session.logged_in, username: req.session.username });
     } catch (err) {
