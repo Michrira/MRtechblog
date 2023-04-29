@@ -1,33 +1,49 @@
-const User = require('./User');
+// import all models
 const Post = require('./Post');
+const User = require('./User');
 const Comment = require('./Comment');
 
-// User.hasMany(Post, {
-//   foreignKey: 'user_id'
-// });
-
+// Create associations between the models
+// User-Post relationship
+User.hasMany(Post, {
+    foreignKey: 'user_id'
+});
+//Post-User relationship
 Post.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
+    foreignKey: 'user_id'
 });
 
-// User.hasMany(Comment, {
-//   foreignKey: 'user_id',
-// });
-
-Post.hasMany(Comment, {
-  foreignKey: 'post_id',
-  onDelete: 'CASCADE',
-});
-
-// Comment.belongsTo(Post, {
-//   foreignKey: 'post_id'
-// });
-
+// Comment-User relationship
 Comment.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
+    foreignKey: 'user_id',
+    onDelete: 'cascade',
+    hooks: true
 });
 
+// Comment-Post relationship
+Comment.belongsTo(Post, {
+    foreignKey: 'post_id',
+    onDelete: 'cascade',
+    hooks: true
+});
 
-module.exports = { User, Post, Comment };
+// User-Comment relationship
+User.hasMany(Comment, {
+    foreignKey: 'user_id',
+    onDelete: 'cascade',
+    hooks: true
+});
+
+// Post-Comment relationship
+Post.hasMany(Comment, {
+    foreignKey: 'post_id',
+    onDelete: 'cascade',
+    hooks: true
+})
+
+// Export the modules
+module.exports = {
+    User,
+    Post,
+    Comment
+};
