@@ -1,0 +1,2 @@
+DROP DATABSE IF EXISTS MRtechblog_db;
+CREATE DATABASE MRtechblog_db;
