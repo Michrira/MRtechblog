@@ -1,19 +1,31 @@
-async function deleteFormHandler(event) {
+/* async function createPostHandler(event) {
     event.preventDefault();
 
-    const post_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
-
-    const response = await fetch(`/api/posts/${post_id}`, {
-        method: 'DELETE'
-    });
-
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert(response.statusText);
-    }
+    document.location.replace('/dashboard/new')
 }
 
-document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler);
+document.querySelector('#create-new-post').addEventListener('click', createPostHandler); */
+
+async function addPostHandler(event) {
+    event.preventDefault();
+  
+    const title = document.querySelector('#post-title').value.trim();
+    const content = document.querySelector('#post-content').value.trim();
+  
+    if (title && content) {
+      const response = await fetch('/api/posts', {
+        method: 'POST',
+        body: JSON.stringify({ title, content }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert('Failed to create post');
+      }
+    }
+  }
+  
+  document.querySelector('.new-post-form').addEventListener('submit', addPostHandler);
+  
