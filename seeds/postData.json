@@ -1,64 +1,40 @@
 [
     {
-      "title": "5 Exciting New Tech Gadgets You Need to Know About",
-      "content": "From smart watches to virtual reality headsets, here are 5 exciting new tech gadgets you need to know about!",
+      "title": "The Benefits of Meditation for Mental Health in Tech",
+      "content": "Learn about the numerous benefits of meditation for mental health, including reduced anxiety and stress, improved focus and concentration, and increased feelings of well-being.",
       "user_id": 1,
       "created_at": "2023-04-23T10:30:00Z"
     },
     {
-      "title": "How AI is Changing the World of Business",
-      "content": "Learn about how AI is revolutionizing industries across the board, from chatbots to data analytics.",
-      "user_id": 1,
+      "title": "The tech industry has revolutionized the way we watch movies, but 'The Godfather' remains a timeless classic.",
+      "content": "Discover how technology has enhanced the movie-watching experience and explore the reasons why 'The Godfather' is still considered the greatest movie of all time.",
+      "user_id": 2,
       "created_at": "2023-04-22T14:45:00Z"
     },
     {
-      "title": "The Pros and Cons of Working Remotely in Tech",
-      "content": "Remote work is increasingly popular in tech, but it has its pros and cons. Consider them if you're thinking about a remote job.",
-      "user_id": 1,
+      "title": "Top 10 AI tools in 2023 for a better work/life balance",
+      "content": "Get information on how industry professionals are viewing the ever growing world of AI.",
+      "user_id": 3,
       "created_at": "2023-04-21T09:15:00Z"
     },
     {
-      "title": "Why Super Mario 64 is the best Mario game",
-      "content": "Super Mario 64 is the game that defined 3D platformers and set the standard for all future Mario games.",
-      "user_id": 2,
+      "title": "The next coding language you should be learning",
+      "content": "Find out from our insiders on what they think the next big language is going to be.",
+      "user_id": 4,
       "created_at": "2023-04-19T16:00:00Z"
     },
     {
-      "title": "The best indie games you've never heard of",
-      "content": "Check out these great indie games that never get the attention they deserve: Hollow Knight, Celeste, and Katana ZERO.",
-      "user_id": 2,
+      "title": "Pocket Bryan",
+      "content": "See how a small start up created the next big thing!",
+      "user_id": 5,
       "created_at": "2023-04-18T11:30:00Z"
     },
     {
-      "title": "My favorite gaming memories",
-      "content": "Gaming has given me some of my fondest memories. What are some of your favorite gaming memories?",
-      "user_id": 2,
+      "title": "Python vs JS, which side are you on?",
+      "content": "Join the debate and see both sides hot takes on which language is superior!",
+      "user_id": 6,
       "created_at": "2023-04-17T14:00:00Z"
-    },
-    {
-      "title": "Learning to cook from my grandmother",
-      "content": "I learned how to make the perfect spaghetti sauce, chicken soup, and apple pie from my amazing grandmother.",
-      "user_id": 3,
-      "created_at": "2023-04-15T19:45:00Z"
-    },
-    {
-      "title": "Experimenting with new flavors",
-      "content": "Recently, I made a spicy Thai chicken curry and it turned out amazing! I can't wait to try more new recipes and expand my cooking skills.",
-      "user_id": 3
-    },
-    {
-      "title": "Why 'The Empire Strikes Back' is the best Star Wars film",
-      "content": "Empire Strikes Back: iconic moments, great characters/relationships, true classic.",
-      "user_id": 4
-    },
-    {
-      "title": "Why 'The Last Jedi' is unfairly maligned",
-      "content": "Empire Strikes Back: iconic moments, great characters/relationships, true classic.",
-      "user_id": 4
-    },
-    {
-      "title": "The Top 10 Lamborghinis of All Time",
-      "content": "Lamborghini has produced some of the most iconic and memorable cars in automotive history. Here are the top 10 Lamborghinis of all time!",
-      "user_id": 5
     }
-  ]
+]
+
+  
