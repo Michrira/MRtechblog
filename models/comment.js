@@ -1,16 +1,15 @@
-const { DataTypes } = require('sequelize'); // Importing the DataTypes object from sequelize
-const sequelize = require('../config/connection'); // Importing the connection object from the connection module
+const { Model, DataTypes } = require('sequelize'); // Importing Model and DataTypes from Sequelize
+const sequelize = require('../config/connection'); // Importing the connection to the database from config/connection.js
 
-// Defining the Comment model
-const Comment = sequelize.define('comment', {
-    // Defining the 'id' field
+class Comment extends Model {} // Creating a Comment class that extends the Sequelize Model class
+
+Comment.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
-    // Defining the 'comment_text' field
     comment_text: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -18,25 +17,25 @@ const Comment = sequelize.define('comment', {
             len: [1]
         }
     },
-    // Defining the 'user_id' field and adding a foreign key constraint to the 'User' model
     user_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'user',
-            key: 'id'
+            model: 'user', // References the user model
+            key: 'id' // The primary key of the user model
         }
     },
-    // Defining the 'post_id' field and adding a foreign key constraint to the 'Post' model
     post_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'post',
-            key: 'id'
+            model: 'post', // References the post model
+            key: 'id' // The primary key of the post model
         }
     }
 }, {
-    freezeTableName: true, // Setting the 'freezeTableName' option to true to prevent sequelize from automatically pluralizing the table name
-    underscored: true // Setting the 'underscored' option to true to use underscores instead of camel-casing for field names
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'comment' // Sets the model name to 'comment'
 });
 
-module.exports = Comment; // Exporting the Comment model
+module.exports = Comment; // Exports the Comment model for use in other files
