@@ -1,25 +1,29 @@
-* {
-  box-sizing: border-box;
-}
+/* Set box-sizing to border-box to include padding and borders in the element's total width and height. */
 
-body {
+{
+  box-sizing: border-box;
+  }
+  /* Set the font family, background color, text color, margin, and padding of the body element. */
+  body {
   font-family: 'Helvetica Neue', sans-serif;
   background-color: #F0F2F5;
   color: #4A4A4A;
   margin: 0;
   padding: 0;
-}
-
-a {
+  }
+  
+  /* Set the color and text decoration of all links, and change the color on hover. */
+  a {
   color: #4A4A4A;
   text-decoration: none;
-}
-
-a:hover {
+  }
+  
+  a:hover {
   color: #2E9AFE;
-}
-
-header {
+  }
+  
+  /* Set the styles for the header element. */
+  header {
   background-color: #FFF;
   border-bottom: 1px solid #DDD;
   height: 60px;
@@ -29,98 +33,103 @@ header {
   left: 0;
   right: 0;
   z-index: 1;
-}
-
-header h1 {
+  }
+  
+  header h1 {
   font-size: 26px;
   margin: 0;
-}
-
-nav {
+  }
+  
+  /* Set the styles for the navigation element. */
+  nav {
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-nav ul {
+  }
+  
+  nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-nav li {
+  }
+  
+  nav li {
   display: inline-block;
   margin-right: 20px;
-}
-
-nav a {
+  }
+  
+  nav a {
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
-}
-
-main {
+  }
+  
+  /* Set the styles for the main content area. */
+  main {
   margin-top: 80px;
   margin-bottom: 60px;
   padding: 20px;
-}
-
-.post {
+  }
+  
+  /* Set the styles for the post element. */
+  .post {
   background-color: #FFF;
   border: 1px solid #DDD;
   margin-bottom: 20px;
   padding: 20px;
-}
-
-.post-title {
+  }
+  
+  .post-title {
   font-size: 22px;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 10px;
-}
-
-.post-meta {
+  }
+  
+  .post-meta {
   color: #AAA;
   font-size: 14px;
   margin-bottom: 10px;
-}
-
-.post-content {
+  }
+  
+  .post-content {
   font-size: 16px;
   line-height: 1.5;
-}
-
-.post-content img {
+  }
+  
+  .post-content img {
   max-width: 100%;
-}
-
-.sidebar {
+  }
+  
+  /* Set the styles for the sidebar element. */
+  .sidebar {
   background-color: #FFF;
   border: 1px solid #DDD;
   padding: 20px;
-}
-
-.sidebar h2 {
+  }
+  
+  .sidebar h2 {
   font-size: 18px;
   margin-top: 0;
   margin-bottom: 20px;
-}
-
-.sidebar ul {
+  }
+  
+  .sidebar ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.sidebar li {
+  }
+  
+  .sidebar li {
   margin-bottom: 10px;
-}
-
-.sidebar a {
+  }
+  
+  .sidebar a {
   font-size: 16px;
   font-weight: bold;
-}
-
-footer {
+  }
+  
+  /* Set the styles for the footer element. */
+  footer {
   background-color: #FFF;
   border-top: 1px solid #DDD;
   height: 60px;
@@ -130,13 +139,14 @@ footer {
   left: 0;
   right: 0;
   z-index: 1;
-}
-
-footer p {
+  }
+  
+  footer p {
   font-size: 14px;
   margin: 0;
-}
-
+  }
+  
+  /* Set the styles for the main and sidebar elements on screens wider than 768px. */
 @media (min-width: 768px) {
   main {
     margin-left: 300px;
