@@ -1,43 +1,44 @@
-
 [   
     {        
         "post_id": 1,        
-        "comment_text": "Interesting article, I learned a lot from it!",        "user_id": 1,       
+        "comment_text": "Interesting article, I learned a lot from it!",        
+        "user_id": 6,       
         "created_at": "2023-04-29T09:23:00Z"   
     },    
     
     {        
         "post_id": 2,       
         "comment_text": "I disagree with some of the points made in this article.",        
-        "user_id": 2,        
+        "user_id": 5,        
         "created_at": "2023-04-29T10:05:00Z"    
     },    
     
     {       
         "post_id": 3,        
         "comment_text": "Nice read, I will definitely share this with my friends!",        
-        "user_id": 3,        
+        "user_id": 4,        
         "created_at": "2023-04-29T12:30:00Z"    
         },   
         
         {        
         "post_id": 4, 
         "comment_text": "I've been looking for more information on this topic, thank you for sharing!",        
-        "user_id": 4,        
+        "user_id": 3,        
         "created_at": "2023-04-29T14:15:00Z"   
         },    
 
         {       
         "post_id": 5,        
         "comment_text": "I love this article, it's very informative and well-written.",        
-        "user_id": 5,       
+        "user_id": 2,       
         "created_at": "2023-04-29T15:40:00Z"    
         },   
         
         {        
         "post_id": 6,       
         "comment_text": "I have to disagree with the author on this one.",        
-        "user_id": 6,        
+        "user_id": 1,        
         "created_at": "2023-04-29T16:20:00Z"   
         }
-]
+] 
+
