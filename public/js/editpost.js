@@ -1,29 +1,38 @@
-// define an asynchronous function to handle form submission
-const editFormHandler = async (event) => {
+// Define an asynchronous function named editFormHandler that takes an event object as a parameter
+async function editFormHandler(event) {
+    // Prevent the default form submission behavior
     event.preventDefault();
 
-    // get the values of the post title and content inputs
-    const { value: title } = document.querySelector('input[name="post-title"]');
-    const { value: post_content } = document.querySelector('textarea[name="post-content"]');
+    // Get the values of the title and post_content input fields
+    const title = document.querySelector('input[name="post-title"]').value;
+    const post_content = document.querySelector('textarea[name="post-content"]').value.trim();
 
-    // extract the post ID from the current URL
-    const post_id = window.location.pathname.split('/').pop();
+    // Get the ID of the current post from the URL
+    const post_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
 
-    // send a PUT request to the server with the updated post data
+    // Send a PUT request to the '/api/posts/:id' endpoint with the updated title and post_content data
     const response = await fetch(`/api/posts/${post_id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, post_content })
+        body: JSON.stringify({
+            title,
+            post_content
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
 
-    // if the response is successful, redirect the user to the dashboard
+    // If the response is OK, redirect the user to the dashboard page
     if (response.ok) {
         document.location.replace('/dashboard');
-    } else {
-        // if there was an error, show an alert with the error message
+    } 
+    // If the response is not OK, show an alert with the status text
+    else {
         alert(response.statusText);
     }
-};
+}
 
-// attach the editFormHandler function to the submit event of the form
+// Attach an event listener to the submit event of the form with the class 'edit-post-form'
 document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);

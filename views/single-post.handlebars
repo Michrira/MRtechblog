@@ -2,22 +2,22 @@
 <br>
 <br>
 
-{{> post-info post}}
+{{> post-info post}}  // Include the post-info partial with the current post data
 
-{{#if loggedIn}}
+{{#if loggedIn}}  // Check if user is logged in
 <form class="comment-form">
     <div>
-        <textarea name="comment-body"></textarea>
+        <textarea name="comment-body"></textarea>  // Textarea for adding comments
     </div>
 
     <div>
-        <button type="submit">add a comment</button>
+        <button type="submit">add a comment</button>  // Submit button for adding new comments
     </div>
 </form>
 {{/if}}
 
-{{> comments post.comments}}
+{{> comments post.comments}}  // Include the comments partial with the comments of the current post
 
-{{#if loggedIn}}
-<script src="/js/comment.js"></script>
+{{#if loggedIn}}  // Check if user is logged in
+<script src="/js/comment.js"></script>  // Include the comment.js script for adding comments
 {{/if}}

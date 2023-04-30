@@ -5,32 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MR Tech Blog</title>
+    <!-- Link to the main stylesheet -->
     <link rel="stylesheet" href="/css/style.css"> 
 </head>
 
 <body>
+    <!-- Wrapper div for the entire page content -->
     <div class="wrapper">
+        <!-- Header section containing the site title, navigation and login/logout button -->
         <header>
             <h1>
+                <!-- Link to the homepage -->
                 <a href="/">Home</a>
             </h1>
             <nav>
+                <!-- Display dashboard and logout button if user is logged in -->
                 {{#if loggedIn}}
                 <a href="/dashboard">Dashboard</a>
                 <button id="logout" class="btn-no-style logout">Logout</button>
+                <!-- Display login button if user is not logged in -->
                 {{else}}
                 <a href="/login">Login</a>
                 {{/if}}
             </nav>
         </header>
+        <!-- Main content of the page -->
         <main>
-        {{{ body }}}
-    </main>
-    <footer>
-        Thank you for checking out the MR Tech Blog!! 🤓🌐🤖🖥️
-    </footer>
+            {{{ body }}}
+        </main>
+        <!-- Footer section -->
+        <footer>
+            Thank you for checking out the MR Tech Blog!! 🤓🌐🤖🖥️
+        </footer>
     </div>
 
+    <!-- Include logout.js script if user is logged in -->
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}

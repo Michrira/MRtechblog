@@ -1,24 +1,30 @@
+<!-- Link to create a new post -->
 <section class="new-post-section">
   <a href="/dashboard/new" class="btn">+ Create a post here</a>
 </section>
 
+<!-- Check if user has any posts -->
 {{#if posts.length}}
+  <!-- Display list of user's posts -->
   <section>
     <h2>Your Dashboard</h2>
     <ul class="post-list">
       {{#each posts as |post|}}
         <li>
           {{> post-info post}}
+          <!-- Link to edit post -->
           <a href="/dashboard/edit/{{post.id}}" class="edit-link">edit post</a>
         </li>
       {{/each}}
     </ul>
   </section>
 {{else}}
+  <!-- If user doesn't have any posts, display message -->
   <section>
     <h2>Your Dashboard</h2>
     <p>You haven't created any posts yet.</p>
   </section>
 {{/if}}
 
+<!-- Script for creating a new post -->
 <script src="/js/createpost.js"></script>

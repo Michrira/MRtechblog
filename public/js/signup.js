@@ -1,38 +1,31 @@
-// Define an async function to handle the form submission
-const signupFormHandler = async (event) => {
-    event.preventDefault(); // prevent the default form submission behavior
+// Get the values of the email, username, and password input fields
+const email = document.querySelector('#email-signup').value.trim();
+const username = document.querySelector('#username-signup').value.trim();
+const password = document.querySelector('#password-signup').value.trim();
 
-    // Use FormData to get the form data and extract the email, username, and password fields
-    const formData = new FormData(event.target);
-    const email = formData.get('email');
-    const username = formData.get('username');
-    const password = formData.get('password');
-
-    try {
-        // Make a POST request to the '/api/users' endpoint with the email, username, and password in the request body
-        const response = await fetch('/api/users', {
-            method: 'POST',
-            body: JSON.stringify({
-                email,
-                username,
-                password
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        // If the response is OK, redirect to the dashboard page
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else { // Otherwise, display an alert with the status text of the response
-            alert(response.statusText);
+// If all fields are filled out, send a POST request to the '/api/users' endpoint with the email, username, and password data
+if (email && username && password) {
+    const response = await fetch('/api/users', {
+        method: 'post',
+        body: JSON.stringify({
+            email,
+            username,
+            password
+        }),
+        headers: {
+            'Content-Type': 'application/json'
         }
-    } catch (err) { // Catch any errors and display an alert with a generic error message
-        console.error(err);
-        alert('An error occurred while signing up');
-    }
-};
+    });
 
-// Attach an event listener to the form's submit event and call the signupFormHandler function
+    // If the response is OK, redirect the user to the dashboard page
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    }
+    // If the response is not OK, show an alert with the status text
+    else {
+        alert(response.statusText);
+    }
+}
+
+// Attach an event listener to the submit event of the form with the class 'signup-form'
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

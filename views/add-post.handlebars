@@ -1,24 +1,31 @@
+<!-- Link to go back to dashboard page -->
 <a href="/dashboard" class="go-back"> &larr; Back to dashboard</a>
 
+<!-- Article section for creating a new blog post -->
 <article class="new-page">
     <section class="new-form-page">
         <div class="form-heading">
             <h2>Create New Blog Post</h2>
         </div>
         <div class="form-section">
+            <!-- Form to create a new blog post -->
             <form class="new-post-form">
+                <!-- Input field for the post title -->
                 <div class="post-title-section">
                     <label for="post-title">Title</label>
                     <input type="text" id="post-title" name="post-title" />
                 </div>
+                <!-- Input field for the post content -->
                 <div class="post-content">
                     <label for="post-content">Content</label>
                     <textarea class="entry-field" id="post-content" name="post-content"></textarea>
                 </div>
+                <!-- Submit button to create the new post -->
                 <button type="submit" class="btn">Create</button>
             </form>
         </div>
     </section>
 </article>
 
+<!-- Script for adding a new post -->
 <script src="/js/addpost.js"></script>
