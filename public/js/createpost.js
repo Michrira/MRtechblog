@@ -1,10 +1,19 @@
-// Define an asynchronous function named createPostHandler that takes an event object as a parameter
-async function createPostHandler(event) {
+async function deleteFormHandler(event) {
     event.preventDefault();
 
-    // Redirect the user to the "new post" page on the dashboard
-    document.location.replace('/dashboard/new');
+    const post_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
+
+    const response = await fetch(`/api/posts/${post_id}`, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
+    }
 }
 
-// Attach an event listener to the "click" event of the element with the ID "create-new-post"
-document.querySelector('#create-new-post').addEventListener('click', createPostHandler);
+document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler);
