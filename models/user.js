@@ -1,7 +1,7 @@
 // Import necessary modules
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // Define User model, which extends the Model class from Sequelize
 class User extends Model {
