@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
             // Serialize post data
             const posts = dbPostData.map(post => post.get({ plain: true }));
             // Render homepage template with posts data
-            res.render('homepage', { posts, loggedIn: req.session.loggedIn });
+            res.render('homepage', { posts, loggedIn: req.session.logged_in });
         })
         .catch(err => {
             // If error, log it and send an error response
@@ -78,7 +78,7 @@ router.get('/post/:id', (req, res) => {
 
             // Serialize post data and render single-post template
             const post = dbPostData.get({ plain: true });
-            res.render('single-post', { post, loggedIn: req.session.loggedIn });
+            res.render('single-post', { post, loggedIn: req.session.logged_in });
         })
         .catch(err => {
             // If error, log it and send an error response
@@ -90,7 +90,7 @@ router.get('/post/:id', (req, res) => {
 // GET route for the login page
 router.get('/login', (req, res) => {
     // If user is already logged in, redirect to homepage
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
         res.redirect('/');
         return;
     }
@@ -102,7 +102,7 @@ router.get('/login', (req, res) => {
 // GET route for the signup page
 router.get('/signup', (req, res) => {
     // If user is already logged in, redirect to homepage
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
         res.redirect('/');
         return;
     }
