@@ -1,10 +1,13 @@
-<a href="/dashboard" class="go-back"> &larr; Back to dashboard</a>
 
+<!-- Renders a link to go back to the dashboard page -->
+<a href="/dashboard" class="go-back"> ← Back to dashboard</a>
+
+<!-- Renders a form to edit a post with fields for title and content, and buttons to update or delete the post -->
 <article class="new-page">
     <section class="edit-form-page">
         <div class="form-heading">
             <h2>
-                Edit Post
+                Edit the Post
             </h2>
         </div>
         <div class="form-section">
@@ -18,14 +21,14 @@
                     <textarea class="entry-field" id="post-content" name="post-content">{{post.content}}</textarea>
                 </div>
                 <button type="submit">Update post</button>
-                <button type="button" class="delete-post-btn">Delete post</button>
+                <button type="button" class="delete-post-btn">Delete the post</button>
             </form>
         </div>
     </section>
 </article>
-
+<!-- Only includes scripts for editing and deleting posts if the user is logged in -->
 {{#if loggedIn}}
-<!-- include scripts only if the user is logged in -->
+
 <script src="/js/editpost.js"></script>
 <script src="/js/deletepost.js"></script>
 {{/if}}

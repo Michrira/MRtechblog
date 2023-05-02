@@ -1,17 +1,16 @@
 <a href="/dashboard" class="go-back"> &larr; Back to dashboard</a>
 <br>
-<br>
 
 {{> post-info post}}  
 
-{{#if loggedIn}}  // Check if user is logged in
+{{#if loggedIn}} 
 <form class="comment-form">
     <div>
         <textarea name="comment-body"></textarea> 
     </div>
 
     <div>
-        <button type="submit">add a comment</button>  
+        <button type="submit">add a comment!</button>  
     </div>
 </form>
 {{/if}}

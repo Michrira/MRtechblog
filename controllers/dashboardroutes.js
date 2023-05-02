@@ -5,6 +5,7 @@ const withAuth = require('../utils/auth');
 
 // Get all posts belonging to the logged-in user and render the dashboard page with post data
 router.get('/', withAuth, (req, res) => {
+    // Find all posts with a user id matching the session's user_id
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -15,6 +16,7 @@ router.get('/', withAuth, (req, res) => {
             'content',
             'created_at'
         ],
+        // Include associated comments and their authors
         include: [
             {
                 model: Comment,
@@ -31,7 +33,9 @@ router.get('/', withAuth, (req, res) => {
         ]
     })
         .then(dbPostData => {
+            // Serialize post data so template can read it
             const posts = dbPostData.map(post => post.get({ plain: true }));
+            // Render dashboard template with posts data
             res.render('dashboard', {
                 posts,
                 loggedIn: true
@@ -45,6 +49,7 @@ router.get('/', withAuth, (req, res) => {
 
 // Get a post by ID for editing and render the edit-post page with the post data
 router.get('/edit/:id', withAuth, (req, res) => {
+    // Find one post by its ID, include assocaited comments and authors
     Post.findOne({
         where: {
             id: req.params.id
@@ -78,7 +83,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
             }
 
             const post = dbPostData.get({ plain: true });
-
             res.render('edit-post', {
                 post,
                 loggedIn: true
